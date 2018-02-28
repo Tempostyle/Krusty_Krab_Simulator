@@ -35,7 +35,7 @@ public class KrustyKrab extends JFrame
 		setTitle("The Krusty Krab Simulator");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setResizable(true);
+		setResizable(false);
 		
 	}
 
