@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import java.text.NumberFormat;
+
 
 public class KrustyKrab extends JFrame
 
@@ -22,7 +24,7 @@ public class KrustyKrab extends JFrame
 	private JButton krabby_patty, double_krabby_patty, kelp_shake, fries, clear;
 	private JTextField total_price;
 	private JLabel kp_price, dkp_price, kelp_price, fries_price, total_label, squid_label;
-
+	
 	/**
 	 * 
 	 */
@@ -36,6 +38,8 @@ public class KrustyKrab extends JFrame
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		
+		
 		
 	}
 
@@ -94,14 +98,6 @@ public class KrustyKrab extends JFrame
 
 	}
 
-	public void paintComponent(Graphics g) 
-	{
-		super.paintComponents(g);
-		
-		ImageIcon myImage = new ImageIcon("squidward.png");
-		myImage.paintIcon(this, g, 50, 50);
-		
-	}
 
 	public class ClearCounterActionListener implements ActionListener {
 
@@ -109,17 +105,23 @@ public class KrustyKrab extends JFrame
 
 			customer_price = 0;
 			total_price.setText("$" + customer_price);
-
+			System.out.println(customer_price);
+			
 		}
 
 	}
 
 	public class FriesCounterActionListener implements ActionListener {
-
 		public void actionPerformed(ActionEvent e) {
 
 			customer_price += f_value;
-			total_price.setText("$" + customer_price);
+			NumberFormat nf = NumberFormat.getNumberInstance();
+			nf.setGroupingUsed(true);
+			nf.setMaximumFractionDigits(2);
+			nf.setMinimumIntegerDigits(1);
+			String totalOut = nf.format(customer_price);
+			total_price.setText("$" + totalOut);
+			System.out.println(customer_price);
 
 		}
 
@@ -130,7 +132,13 @@ public class KrustyKrab extends JFrame
 		public void actionPerformed(ActionEvent e) {
 
 			customer_price += ks_value;
-			total_price.setText("$" + customer_price);
+			NumberFormat nf = NumberFormat.getNumberInstance();
+			nf.setGroupingUsed(true);
+			nf.setMaximumFractionDigits(2);
+			nf.setMinimumIntegerDigits(1);
+			String totalOut = nf.format(customer_price);
+			total_price.setText("$" + totalOut);
+			System.out.println(customer_price);
 
 		}
 
@@ -141,7 +149,13 @@ public class KrustyKrab extends JFrame
 		public void actionPerformed(ActionEvent e) {
 
 			customer_price += dkp_value;
-			total_price.setText("$" + customer_price);
+			NumberFormat nf = NumberFormat.getNumberInstance();
+			nf.setGroupingUsed(true);
+			nf.setMaximumFractionDigits(2);
+			nf.setMinimumIntegerDigits(1);
+			String totalOut = nf.format(customer_price);
+			total_price.setText("$" + totalOut);
+			System.out.println(customer_price);
 
 		}
 
@@ -152,14 +166,24 @@ public class KrustyKrab extends JFrame
 		public void actionPerformed(ActionEvent e) {
 
 			customer_price += kp_value;
-			total_price.setText("$" + customer_price);
+			NumberFormat nf = NumberFormat.getNumberInstance();
+			nf.setGroupingUsed(true);
+			nf.setMaximumFractionDigits(2);
+			nf.setMinimumIntegerDigits(1);
+			String totalOut = nf.format(customer_price);
+			total_price.setText("$" + totalOut);
+			System.out.println(customer_price);
 
 		}
 
 	}
 
 	public static void main(String[] args) {
+		NumberFormat nf = NumberFormat.getNumberInstance();
+		
+		
 		SwingUtilities.invokeLater(new Runnable() {
+			
 			public void run() {
 				new KrustyKrab().setVisible(true);
 				;
