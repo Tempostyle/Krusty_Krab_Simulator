@@ -24,10 +24,6 @@ public class KrustyKrab extends JFrame
 	private JButton krabby_patty, double_krabby_patty, kelp_shake, fries, clear;
 	private JTextField total_price;
 	private JLabel kp_price, dkp_price, kelp_price, fries_price, total_label, squid_label;
-	
-	/**
-	 * 
-	 */
 
 	public KrustyKrab() {
 
@@ -37,10 +33,7 @@ public class KrustyKrab extends JFrame
 		setTitle("The Krusty Krab Simulator");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setResizable(false);
-		
-		
-		
+		setResizable(false);	
 	}
 
 	public void createView() {
@@ -106,9 +99,7 @@ public class KrustyKrab extends JFrame
 			customer_price = 0;
 			total_price.setText("$" + customer_price);
 			System.out.println(customer_price);
-			
 		}
-
 	}
 
 	public class FriesCounterActionListener implements ActionListener {
